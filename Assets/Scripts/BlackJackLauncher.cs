@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Handles launching the game from a splash screen.
+/// </summary>
 public class BlackJackLauncher : MonoBehaviour
 {
     [SerializeField]

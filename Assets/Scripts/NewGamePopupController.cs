@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Manages the "New Game" Menu
+/// </summary>
 public class NewGamePopupController : MonoBehaviour
 {
-
     [SerializeField]
     private InputField m_minBet = null;
 
@@ -27,12 +27,12 @@ public class NewGamePopupController : MonoBehaviour
 
     public int GetMinBet()
     {
-        return Math.Max(HelperClasses.GetInputFieldValueAsInt(m_minBet.text, m_minBetDefault), 1);
+        return Math.Max(HelperClasses.SafeParseStringAsInt(m_minBet.text, m_minBetDefault), 1);
     }
 
     public int GetStartingCash()
     {
-        return Math.Max(HelperClasses.GetInputFieldValueAsInt(m_startingCash.text, m_startingCashDefault), 1);
+        return Math.Max(HelperClasses.SafeParseStringAsInt(m_startingCash.text, m_startingCashDefault), 1);
     }
 
 }

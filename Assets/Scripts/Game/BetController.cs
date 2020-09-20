@@ -1,7 +1,9 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// manages betting for the player
+/// </summary>
 public class BetController : MonoBehaviour
 {
     [SerializeField]

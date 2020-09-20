@@ -9,6 +9,9 @@ public enum EGamePhase
     BetsResolving = 3,
 }
 
+/// <summary>
+/// A game state object that can be passed around for convenience
+/// </summary>
 public class BlackJackGameState
 {
     public EGamePhase currentPhase { get; set; } = EGamePhase.PlacingBets;

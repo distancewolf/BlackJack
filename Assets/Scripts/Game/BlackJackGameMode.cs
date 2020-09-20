@@ -1,7 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿
+/// <summary>
+/// Stores some constants about the game based on player inputs.
+/// </summary>
 public class BlackJackGameMode
 {
     public int minBet { get; }

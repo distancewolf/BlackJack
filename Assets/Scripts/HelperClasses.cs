@@ -4,9 +4,14 @@ using UnityEngine.UI;
 
 public class HelperClasses
 {
-    public static int GetInputFieldValueAsInt(string inputText, int defaultValue)
+    /// <summary>
+    /// Parses a string input field to an int.
+    /// </summary>
+    /// <param name="inputText"></param>
+    /// <param name="defaultValue"></param>
+    /// <returns></returns>
+    public static int SafeParseStringAsInt(string inputText, int defaultValue)
     {
-        //should succeed, since InputFields are set to be integer only, but use Try/Catch to be safe
         try
         {
             return Int32.Parse(inputText);

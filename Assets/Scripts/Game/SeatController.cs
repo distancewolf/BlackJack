@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// Base class for any player in the game, whether dealer, human-controlled player, or AI-controlled player
+/// </summary>
 public class SeatController : MonoBehaviour
 {
     protected BlackJackGameMode m_gameMode; //players keep a pointer to the game mode to help dicate rules

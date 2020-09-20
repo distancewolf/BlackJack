@@ -25,6 +25,7 @@ public class BlackJackGame : MonoBehaviour
         if (m_instance != null)
         {
             Debug.LogWarning("You are trying to create another BlackJackGame object, this is not allowed");
+            return;
         }
 
         m_instance = this;

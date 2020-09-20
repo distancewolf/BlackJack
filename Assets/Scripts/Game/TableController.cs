@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-
+/// <summary>
+/// Controls play at a table of Black Jack
+/// </summary>
 public class TableController : MonoBehaviour
 {
-    
     [SerializeField]
     DealerController m_dealer = null;
 
@@ -15,14 +14,15 @@ public class TableController : MonoBehaviour
     [SerializeField]
     BetController m_betController = null;
 
+    [SerializeField]
+    PlayerTableAreaView m_playerTableArea = null;
+
     private BlackJackGameMode m_gameMode;
     private BlackJackGameState m_gameState;
 
     protected void Start()
     {
-        // BlackJackGameMode gameMode = BlackJackGame.Get().gameMode;
-
-        BlackJackGameMode gameMode = new BlackJackGameMode(10, 100);
+        BlackJackGameMode gameMode = BlackJackGame.Get().gameMode;
 
         m_gameState = new BlackJackGameState(gameMode.numDecks);
 
@@ -44,6 +44,7 @@ public class TableController : MonoBehaviour
                 UpdateAction();
                 break;
             case EGamePhase.BetsResolving:
+
                 break;
         }
     }
@@ -75,6 +76,7 @@ public class TableController : MonoBehaviour
 
     private void UpdateDealCards()
     {
+
     }
 
     private void UpdateAction()

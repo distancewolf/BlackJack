@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Controller for a player's action during play. Eventually would have been split into AIPlayerController, and HumanPlayerController
+/// </summary>
 public class PlayerController : SeatController
 {
-
     [SerializeField]
     InputField m_betField = null;
 
@@ -37,7 +36,7 @@ public class PlayerController : SeatController
 
     private int GetBetFromInput(string input)
     {
-        return HelperClasses.GetInputFieldValueAsInt(input, m_gameMode.minBet);
+        return HelperClasses.SafeParseStringAsInt(input, m_gameMode.minBet);
     }
 
     private void OnEndEditBet(string newText)
