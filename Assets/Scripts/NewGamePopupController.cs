@@ -27,26 +27,12 @@ public class NewGamePopupController : MonoBehaviour
 
     public int GetMinBet()
     {
-        return Math.Max(GetInputFieldValueAsInt(m_minBet, m_minBetDefault), 1);
+        return Math.Max(HelperClasses.GetInputFieldValueAsInt(m_minBet.text, m_minBetDefault), 1);
     }
 
     public int GetStartingCash()
     {
-        return Math.Max(GetInputFieldValueAsInt(m_startingCash, m_startingCashDefault), 1);
+        return Math.Max(HelperClasses.GetInputFieldValueAsInt(m_startingCash.text, m_startingCashDefault), 1);
     }
 
-    public int GetInputFieldValueAsInt(InputField inputField, int defaultValue)
-    {
-        //should succeed, since InputField is set to be integer only, but use Try/Catch to be safe
-        try
-        {
-            return Int32.Parse(inputField.text);
-        }
-        catch (Exception e)
-        {
-            Debug.Log(e.Message);
-        }
-
-        return defaultValue;
-    }
 }

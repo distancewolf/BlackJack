@@ -1,18 +1,58 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : SeatController
 {
-    // Start is called before the first frame update
-    void Start()
+
+    [SerializeField]
+    InputField m_betField = null;
+
+    [SerializeField]
+    Button m_placeBetButton = null;
+
+    public bool hasPlacedBet { get; private set; } = false;
+
+    public int currentBet { get; set; } = 0;
+
+    public void PlaceBet(int betAmount)
     {
-        
+        currentBet = betAmount;
+        hasPlacedBet = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    protected void Start()
     {
-        
+        m_placeBetButton.onClick.AddListener(PlaceBet);
+        m_betField.onEndEdit.AddListener(OnEndEditBet);
+    }
+
+    protected void OnDestroy()
+    {
+        m_placeBetButton.onClick.RemoveListener(PlaceBet);
+        m_betField.onEndEdit.RemoveListener(OnEndEditBet);
+    }
+
+    private int GetBetFromInput(string input)
+    {
+        return HelperClasses.GetInputFieldValueAsInt(input, m_gameMode.minBet);
+    }
+
+    private void OnEndEditBet(string newText)
+    {
+        int betAmount = GetBetFromInput(newText);
+        m_betField.text = betAmount.ToString();
+    }
+
+    private void PlaceBet()
+    {
+        int betAmount = GetBetFromInput(m_betField.text);
+        if (betAmount >= m_gameMode.minBet)
+        {
+            currentBet = betAmount;
+            hasPlacedBet = true;
+        }
     }
 }

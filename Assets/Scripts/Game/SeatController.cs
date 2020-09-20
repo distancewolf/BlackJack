@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SeatController : MonoBehaviour
 {
-    private BlackJackGameMode m_gameMode; //players keep a pointer to the game mode to help dicate rules
-    private BlackJackGameState m_gameState; //players keep a pointer to game state to drive actions.
+    protected BlackJackGameMode m_gameMode; //players keep a pointer to the game mode to help dicate rules
+    protected BlackJackGameState m_gameState; //players keep a pointer to game state to drive actions.
 
     public int currentCash { get; set; } = 0;
 
@@ -17,15 +17,4 @@ public class SeatController : MonoBehaviour
         currentCash = gameMode.startingCash;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

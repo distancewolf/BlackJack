@@ -7,12 +7,13 @@ public class BlackJackGameMode
     public int minBet { get; }
     public int startingCash { get; }
 
-    public 
+    public int numDecks { get; }
 
     public BlackJackGameMode(int inMinBet, int inStartingCash)
     {
         minBet = inMinBet;
         startingCash = inStartingCash;
+        numDecks = 8;
     }
 
 }
