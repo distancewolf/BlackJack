@@ -21,7 +21,7 @@ public class BlackJackGame : MonoBehaviour
 
     public BlackJackSaveState saveState { get; private set; } = null;
 
-    public void Awake()
+    protected void Awake()
     {
         if (m_instance != null)
         {

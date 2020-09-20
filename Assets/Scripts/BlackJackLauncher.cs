@@ -7,8 +7,8 @@ public class BlackJackLauncher : MonoBehaviour
     private float m_loadDelayTime = 1f;
 
     private bool m_gameLoading = false;
-    
-    void Update()
+
+    protected void Update()
     {
         if (!m_gameLoading)
         {
