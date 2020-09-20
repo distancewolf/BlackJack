@@ -34,6 +34,8 @@ public class MainMenuController : MonoBehaviour
 
     private void PlayNewGameButtonPressed()
     {
+        BlackJackGame.Get().CreateNewGameMode(m_newGamePopupController.GetMinBet(), m_newGamePopupController.GetStartingCash());
+
         SceneManager.LoadScene("Game");
     }
 

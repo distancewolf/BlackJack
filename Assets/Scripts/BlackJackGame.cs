@@ -7,6 +7,7 @@ using UnityEngine;
 /// </summary>
 public class BlackJackGame : MonoBehaviour
 {
+    #region singleton members
     private static BlackJackGame m_instance;
 
     public static BlackJackGame Get()
@@ -19,8 +20,6 @@ public class BlackJackGame : MonoBehaviour
         return m_instance;
     }
 
-    public BlackJackSaveState saveState { get; private set; } = null;
-
     protected void Awake()
     {
         if (m_instance != null)
@@ -31,10 +30,21 @@ public class BlackJackGame : MonoBehaviour
         m_instance = this;
         DontDestroyOnLoad(this);
     }
+    #endregion
+
+    public BlackJackSaveState saveState { get; private set; } = null;
+
+    public BlackJackGameMode gameMode { get; private set; } = null;
+    
 
     public void LoadContent()
     {
         saveState = Serializer.Load<BlackJackSaveState>(UnityEngine.Application.persistentDataPath + Constants.c_saveStateFileName);
+    }
+
+    public void CreateNewGameMode(int minBet, int startingCash)
+    {
+        gameMode = new BlackJackGameMode(minBet, startingCash);
     }
 
 }
